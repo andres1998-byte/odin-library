@@ -20,9 +20,11 @@ function book(title, author, pages, read) {
 }
 
 
-function addBookToLibrary(){
+function addBookToLibrary(mybooks){
+    
     
 }
 
 const book1 = new book("The Hobbit", "JRR Tolkien", 254, "no");
 const book2 = new book("The Stranger", "ALbert Camus", 375, "yes");
+
