@@ -10,7 +10,7 @@
     <body>
         <div class="header">
             <div class="librarytext">Library</div>
-            <form action="#">
+            <form id="form">
                 <div class="bookoption">
                     <label for="booktitle">Title of the book:</label>
                     <input type="text" id="booktitle" required>     
@@ -25,9 +25,9 @@
                 </div>
                 <div class="bookoption">
                     <label for="haveread">Have you read the book? (yes/no):</label>
-                    <input type="text" id="haveread" required>     
+                    <input type="checkbox" id="haveread">     
                 </div>
-                <button type="submit" class="addbook"> Add book</button>
+                <button type="submit" id="addbook"> Add book</button>
             </form>
         </div>
 
