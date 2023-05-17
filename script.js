@@ -11,6 +11,16 @@ function book(title, author, pages, read) {
     }
 }
 
+book.prototype.toggleRead = function () {
+    this.read=!this.read;
+}
+
+function toggleRead (index) {
+    myLibrary[index].toggleRead();
+    render();
+
+}
+
 function render() {
     let library=document.querySelector(".library");
     library.innerHTML="";
@@ -23,7 +33,8 @@ function render() {
         <h4>By: ${book.author}</h4>
         <h4># of pages: ${book.pages}</h4>
         <h4>Read: ${book.read}</h4>
-        <button class="removebook" onclick="removeBook(${i})">Remove book</button>`;
+        <button class="removebook" onclick="removeBook(${i})">Remove book</button>
+        <button class="togglereadbtn" onclick="toggleRead(${i})">Toggle read</button>`;
         library.appendChild(bookEl);
     }
 }
@@ -43,6 +54,10 @@ let form=document.querySelector("#form");
 form.addEventListener("submit", function () {
     event.preventDefault();
     addBookToLibrary();
+    document.querySelector("#booktitle").value="";
+    document.querySelector("#bookauthor").value="";
+    document.querySelector("#numpages").value="";
+    document.querySelector("#haveread").checked=false;
 }
 )
 

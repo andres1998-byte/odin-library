@@ -94,10 +94,25 @@ input {
     font-size: 10px;
     font-weight: 700;
     border: none;
-
 }
 
 .removebook:hover {
+    background-color:rgb(14, 136, 24);
+    box-shadow: 0 0 11px rgba(24, 23, 23, 0.4); 
+}
+
+.togglereadbtn {
+    border-radius: 10px;
+    height: 35px;
+    width: 60px;
+    background-color:rgb(21, 161, 33);
+    color:white;
+    font-size: 10px;
+    font-weight: 700;
+    border: none;
+}
+
+.togglereadbtn:hover {
     background-color:rgb(14, 136, 24);
     box-shadow: 0 0 11px rgba(24, 23, 23, 0.4); 
 }
