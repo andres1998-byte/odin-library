@@ -1,7 +1,4 @@
-const book1 = new book("The Hobbit", "JRR Tolkien", 254, "no");
-const book2 = new book("The Stranger", "ALbert Camus", 375, "yes");
-
-let myLibrary=[book1, book2];
+let myLibrary=[];
 
 function book(title, author, pages, read) {
     this.title=title;
@@ -14,6 +11,23 @@ function book(title, author, pages, read) {
     }
 }
 
+function render() {
+    let library=document.querySelector(".library");
+    library.innerHTML="";
+    for (let i=0; i<myLibrary.length;i++) {
+        let book=myLibrary[i];
+        let bookEl=document.createElement("div");
+        bookEl.classList.add("book");
+        bookEl.innerHTML=`
+        <h3><em>${book.title}</em></h3>
+        <h4>By: ${book.author}</h4>
+        <h4># of pages: ${book.pages}</h4>
+        <h4>Read: ${book.read}</h4>
+        <button class="removebook" onclick="removeBook(${i})">Remove book</button>`;
+        library.appendChild(bookEl);
+    }
+}
+
 
 function addBookToLibrary(){
     let title=document.querySelector("#booktitle").value;
@@ -21,7 +35,8 @@ function addBookToLibrary(){
     let pages=document.querySelector("#numpages").value;
     let read=document.querySelector("#haveread").checked;
     let newBook= new book(title,author,pages,read);
-    console.log(newBook); 
+    myLibrary.push(newBook);
+    render();
 }
 
 let form=document.querySelector("#form");
@@ -30,5 +45,11 @@ form.addEventListener("submit", function () {
     addBookToLibrary();
 }
 )
+
+function removeBook (index) {
+    myLibrary.splice(index,1);
+    render();
+}
+
 
 
